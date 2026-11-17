@@ -2,7 +2,7 @@ name: Deliver orders
 
 on:
   schedule:
-    - cron: "*/10 * * * *"   # every 10 minutes
+    - cron: "7,17,27,37,47,57 * * * *"   # every 10 minutes, off the busy :00 slots
   push:
     branches: [main]
   workflow_dispatch:
