@@ -3,6 +3,8 @@ name: Deliver orders
 on:
   schedule:
     - cron: "*/10 * * * *"   # every 10 minutes
+  push:
+    branches: [main]
   workflow_dispatch: {}
 
 permissions:
@@ -13,30 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deliver:
-    runs-on: ubuntu-latest
-    timeout-minutes: 8
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - name: Check orders and deliver
-        env:
-          MONO_TOKEN: ${{ secrets.MONO_TOKEN }}
-          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          PRODUCT_B64: ${{ secrets.PRODUCT_B64 }}
-        run: python delivery/deliver.py
-      - name: Save state
-        run: |
-          git config user.name "ship-it-bot"
-          git config user.email "ship-it-bot@users.noreply.github.com"
-          git add state/processed.json
-          git diff --cached --quiet || (git commit -m "state: delivered orders" && git push)
-
   tests:
-    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,3 +23,31 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pytest && pytest -q
+
+  deliver:
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      MONO_TOKEN: ${{ secrets.MONO_TOKEN }}
+      GMAIL_ADDRESS: andrew.kamyshin@gmail.com
+      GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+      PRODUCT_PATH: /tmp/product.md
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unlock product file
+        if: env.GMAIL_APP_PASSWORD != ''
+        run: |
+          KEY="${GMAIL_APP_PASSWORD// /}" openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
+            -in delivery/product.enc -out /tmp/product.md -pass env:KEY
+      - name: Check orders and deliver
+        run: python delivery/deliver.py
+      - name: Save state
+        run: |
+          git config user.name "ship-it-bot"
+          git config user.email "ship-it-bot@users.noreply.github.com"
+          git add state/processed.json
+          git diff --cached --quiet || (git commit -m "state: delivered orders" && git pull --rebase && git push)

@@ -170,6 +170,9 @@ def send_all(messages: list[EmailMessage], user: str, password: str) -> None:
 # ---------- main ----------
 
 def main() -> int:
+    if not os.environ.get("PRODUCT_B64") and os.environ.get("PRODUCT_PATH") \
+            and Path(os.environ["PRODUCT_PATH"]).exists():
+        os.environ["PRODUCT_B64"] = base64.b64encode(Path(os.environ["PRODUCT_PATH"]).read_bytes()).decode()
     missing = [k for k in ("MONO_TOKEN", "GMAIL_ADDRESS", "GMAIL_APP_PASSWORD", "PRODUCT_B64")
                if not os.environ.get(k)]
     if missing:

@@ -12,9 +12,9 @@ Live site: https://anderwonder911.github.io/ship-it/
 | Name | What |
 |---|---|
 | `MONO_TOKEN` | token from https://api.monobank.ua/ (read-only) |
-| `GMAIL_ADDRESS` | Gmail that sends deliveries and gets sale alerts |
+| `GMAIL_ADDRESS` | set in deliver.yml (andrew.kamyshin@gmail.com) |
 | `GMAIL_APP_PASSWORD` | app password from https://myaccount.google.com/apppasswords |
-| `PRODUCT_B64` | base64 of the product .md file |
+| (product) | `delivery/product.enc`, the pack encrypted with the Gmail app password (spaces removed) |
 
 ## Common changes
 - **Price:** edit the text in `index.html` and `?a=200`. For the minimum accepted amount, set the `MIN_AMOUNT_UAH` env var in `deliver.yml`.
