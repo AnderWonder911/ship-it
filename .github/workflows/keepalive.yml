@@ -1,0 +1,18 @@
+name: Keep schedule alive
+# GitHub pauses scheduled workflows in public repos after 60 days without activity.
+on:
+  schedule:
+    - cron: "17 6 1 * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          date -u +%FT%TZ > state/heartbeat.txt
+          git config user.name "ship-it-bot"
+          git config user.email "ship-it-bot@users.noreply.github.com"
+          git add state/heartbeat.txt && git commit -m "keepalive" && git push

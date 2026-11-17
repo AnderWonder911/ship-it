@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ship It With Claude Code — 40 copy-paste prompts</title>
+<meta name="description" content="40 copy-paste Claude Code prompts that take you from idea to live app to first paying customer. Instant email delivery. €5.">
+<meta property="og:title" content="Ship It With Claude Code — 40 copy-paste prompts">
+<meta property="og:description" content="Stop asking Claude Code tiny questions. Give it whole jobs. Idea → live app → first paying customer.">
+<meta property="og:image" content="https://anderwonder911.github.io/ship-it/og.png">
+<meta property="og:url" content="https://anderwonder911.github.io/ship-it/">
+<meta property="og:type" content="product">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#12100e;--ink:#f5f0e8;--muted:#b4ab9e;--accent:#d97757;--card:#1b1815;--line:#2e2924;--ok:#8fbf8f}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:780px;margin:0 auto;padding:64px 22px 72px}
+  .eyebrow{color:var(--accent);font-weight:700;letter-spacing:.09em;font-size:13px;text-transform:uppercase}
+  h1{font-family:Fraunces,Georgia,serif;font-size:clamp(44px,9vw,76px);line-height:1;font-weight:800;margin:16px 0 20px;letter-spacing:-.02em}
+  h1 em{font-style:normal;color:var(--accent)}
+  .sub{color:var(--muted);font-size:19px;max-width:580px}
+  h2{font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:600;margin:64px 0 18px;letter-spacing:-.01em}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  /* checkout */
+  .checkout{margin-top:36px}
+  .checkout label{display:block;font-weight:600;margin-bottom:8px}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  input[type=email]{flex:1 1 240px;min-width:0;background:#0e0c0a;border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:15px 16px;font:inherit;font-size:17px}
+  input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#12100e;font-weight:700;font-size:17px;padding:15px 26px;border-radius:12px;border:0;cursor:pointer;text-decoration:none;font-family:inherit;min-height:52px}
+  .btn:hover{filter:brightness(1.08)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .fine{font-size:14px;color:var(--muted);margin-top:10px}
+  .err{color:#ff9b85;font-size:14px;margin-top:8px;min-height:1em}
+  .step2{display:none;margin-top:16px}
+  .step2.show{display:block}
+  .code{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#0e0c0a;border:1px dashed var(--accent);border-radius:12px;padding:12px 14px;margin:12px 0;font-family:ui-monospace,Menlo,monospace;font-size:16px;word-break:break-all}
+  .code span{flex:1}
+  .copy{background:var(--line);color:var(--ink);border:0;border-radius:8px;padding:8px 12px;font:inherit;font-size:14px;cursor:pointer}
+  ol.steps{padding-left:22px;color:var(--muted)} ol.steps li{margin:6px 0} ol.steps b{color:var(--ink)}
+  .price{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+  .price b{font-size:30px;font-family:Fraunces,Georgia,serif}
+  .price span{color:var(--muted);font-size:15px}
+  /* content */
+  .grid{display:grid;gap:12px}
+  @media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+  .item b{display:block;margin-bottom:4px}
+  .item span{color:var(--muted);font-size:15px}
+  .n{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.06em}
+  pre{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;white-space:pre-wrap;font-size:14px;color:#d9d1c4;font-family:ui-monospace,Menlo,monospace;margin-bottom:12px}
+  details{border-bottom:1px solid var(--line);padding:16px 0}
+  summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  summary::after{content:"+";color:var(--accent);font-weight:700}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);margin-top:8px}
+  .final{text-align:center;margin-top:72px;padding:44px 22px}
+  .final h2{margin-top:0}
+  footer{color:#6f675e;font-size:13px;text-align:center;margin-top:36px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">40 copy-paste prompts · 1 bonus mega-prompt</div>
+  <h1>Ship it with <em>Claude&nbsp;Code.</em></h1>
+  <p class="sub">Stop asking Claude Code tiny questions. Give it whole jobs. These prompts take you from idea → live app → first paying customer.</p>
+
+  <section class="checkout card" id="buy">
+    <div class="price"><b>€5</b><span>≈ $5 · 200 ₴ · one-time · instant email delivery</span></div>
+    <form id="f" novalidate>
+      <label for="email">Where should we send your pack?</label>
+      <div class="row">
+        <input id="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+        <button class="btn" type="submit">Continue to payment →</button>
+      </div>
+      <div class="err" id="err"></div>
+    </form>
+    <div class="step2" id="step2">
+      <ol class="steps">
+        <li><b>Copy your email</b> — paste it in the payment <b>comment</b> so we know where to send the pack:</li>
+      </ol>
+      <div class="code"><span id="emailShow"></span><button class="copy" id="copyBtn" type="button">Copy</button></div>
+      <ol class="steps" start="2">
+        <li><b>Pay 200 ₴</b> (about €5) by card, Apple Pay or Google Pay. Any bank, any country.</li>
+        <li><b>Check your inbox</b> — the pack arrives automatically, usually within 15 minutes.</li>
+      </ol>
+      <div class="row" style="margin-top:14px">
+        <a class="btn" id="payBtn" href="https://send.monobank.ua/jar/67pBy3mtKn" target="_blank" rel="noopener">Pay 200 ₴ securely →</a>
+      </div>
+      <p class="fine">Payment is processed by monobank. Forgot the comment? Email <b>CONTACT_EMAIL</b> and you'll get your pack.</p>
+    </div>
+  </section>
+
+  <h2>What's inside</h2>
+  <div class="grid">
+    <div class="card item"><div class="n">PART 1 · 6 PROMPTS</div><b>Idea &amp; planning</b><span>Validate an idea, write a build spec, create a CLAUDE.md, plan milestones, estimate costs.</span></div>
+    <div class="card item"><div class="n">PART 2 · 12 PROMPTS</div><b>Building</b><span>Scaffold, full features end to end, login, Stripe, AI features, landing page, uploads, admin, emails.</span></div>
+    <div class="card item"><div class="n">PART 3 · 8 PROMPTS</div><b>Fixing &amp; quality</b><span>The universal bug-fix prompt, security review, speed-ups, tests, refactors.</span></div>
+    <div class="card item"><div class="n">PART 4 · 7 PROMPTS</div><b>Launching</b><span>Free deployment, custom domain, analytics, SEO, launch posts, pre-launch checklist.</span></div>
+    <div class="card item"><div class="n">PART 5 · 7 PROMPTS</div><b>Making money</b><span>Pricing, waitlists, upgrade moments, cold DMs, first 10 customers, referrals, growth loop.</span></div>
+    <div class="card item"><div class="n">BONUS</div><b>The "do it all" mega-prompt</b><span>One prompt that takes an idea to a deployed app with payments.</span></div>
+  </div>
+
+  <h2>Two free samples</h2>
+<pre>#19 — Fix any bug
+Bug: [WHAT HAPPENS] when I [STEPS]. Expected: [WHAT SHOULD HAPPEN].
+Find the root cause, not just the symptom. Explain the cause in 2 sentences,
+fix it, and check that nothing else uses the code you changed in a way
+that would now break.</pre>
+<pre>#2 — Turn the idea into a build spec
+Write a SPEC.md for [APP NAME]: [ONE-SENTENCE DESCRIPTION].
+Include: user stories (max 8), pages/screens, data model, tech stack
+recommendation for a solo builder who wants to deploy free, and a
+"NOT in v1" list. Save it to SPEC.md in this folder. Do not write code yet.</pre>
+
+  <h2>Questions</h2>
+  <details><summary>What format is it?</summary><p>One Markdown (.md) file. It opens in any text editor, Notion, Obsidian or VS Code. Copy a prompt, fill in the [BRACKETS], paste it into Claude Code.</p></details>
+  <details><summary>Do I need to be a developer?</summary><p>No. The prompts are written so Claude Code does the technical work and tells you exactly what you need to do yourself.</p></details>
+  <details><summary>Does it work with the desktop app, terminal and web?</summary><p>Yes. The prompts work anywhere you can use Claude Code.</p></details>
+  <details><summary>How do I get it after paying?</summary><p>Put your email in the payment comment. The pack is emailed to you automatically, usually within 15 minutes.</p></details>
+  <details><summary>Can I pay from outside Ukraine?</summary><p>Yes. Any Visa or Mastercard from any country works, plus Apple Pay and Google Pay. Your bank converts 200 ₴ to your currency (about €5).</p></details>
+  <details><summary>Something went wrong?</summary><p>Email <b>CONTACT_EMAIL</b> (or reply to the delivery email) and you'll get a fix or a refund.</p></details>
+
+  <section class="final card">
+    <h2>Ship your next app this weekend.</h2>
+    <a class="btn" href="#buy">Get the 40 prompts — €5</a>
+  </section>
+
+  <footer>Made by Andrew · Ship It With Claude Code is an independent guide and is not affiliated with Anthropic.</footer>
+</main>
+<script>
+  const JAR = "https://send.monobank.ua/jar/67pBy3mtKn";
+  const f = document.getElementById("f"), input = document.getElementById("email");
+  const err = document.getElementById("err"), step2 = document.getElementById("step2");
+  const show = document.getElementById("emailShow"), pay = document.getElementById("payBtn");
+  f.addEventListener("submit", e => {
+    e.preventDefault();
+    const v = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { err.textContent = "Please enter a valid email."; return; }
+    err.textContent = "";
+    show.textContent = v;
+    // amount + comment prefill (ignored harmlessly if the jar page doesn't support it)
+    pay.href = JAR + "?a=200&t=" + encodeURIComponent(v);
+    step2.classList.add("show");
+    try { localStorage.setItem("shipit_email", v); } catch (_) {}
+    step2.scrollIntoView({behavior: "smooth", block: "center"});
+  });
+  document.getElementById("copyBtn").addEventListener("click", async e => {
+    try { await navigator.clipboard.writeText(show.textContent); e.target.textContent = "Copied ✓"; }
+    catch (_) { e.target.textContent = "Select & copy"; }
+  });
+  try { const saved = localStorage.getItem("shipit_email"); if (saved) input.value = saved; } catch (_) {}
+</script>
+</body>
+</html>

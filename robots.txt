@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://anderwonder911.github.io/ship-it/sitemap.xml
