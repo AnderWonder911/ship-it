@@ -186,6 +186,11 @@ def main() -> int:
     min_kop = int(float(os.environ.get("MIN_AMOUNT_UAH", "180")) * 100)
     dry = os.environ.get("DRY_RUN") == "1"
 
+    if os.environ.get("SEND_TEST") == "1":
+        send_all([build_delivery(sender, sender, product)], sender, password)
+        print("test delivery sent to owner")
+        return 0
+
     state = load_state()
     processed = set(state["processed"])
 

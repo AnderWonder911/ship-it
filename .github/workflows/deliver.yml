@@ -5,7 +5,12 @@ on:
     - cron: "*/10 * * * *"   # every 10 minutes
   push:
     branches: [main]
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      send_test:
+        description: "Send a test delivery to the owner instead of checking payments"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -33,6 +38,7 @@ jobs:
       GMAIL_ADDRESS: andrew.kamyshin@gmail.com
       GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
       PRODUCT_PATH: /tmp/product.md
+      SEND_TEST: ${{ github.event.inputs.send_test == 'true' && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
